@@ -5,13 +5,26 @@ import Webcam from "react-webcam";
 import galleryIcon from "../../images/gallery.png";
 import { ArrowUp, Camera, ArrowCircleRight, X, Aperture } from "phosphor-react";
 
+function dataURLtoFile(dataurl, filename) {
+  var arr = dataurl.split(","),
+    mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[1]),
+    n = bstr.length,
+    u8arr = new Uint8Array(n);
+
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], filename, { type: mime });
+}
+
 const ImageSelect = () => {
   const inputRef = useRef();
   const webRef = useRef(null);
 
   const [imgSrc, setImgSrc] = useState(galleryIcon);
   const [webCamOn, setWebCamOn] = useState(false);
-  const [newImg, setNewImg] = useState("");
+  const [newImg, setNewImg] = useState(null);
 
   const changeHandler = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -33,29 +46,17 @@ const ImageSelect = () => {
     setWebCamOn(false);
   };
 
-  const [deviceId, setDeviceId] = useState({});
-  const [devices, setDevices] = useState([]);
+  const captureHandler = () => {
+    const img = webRef.current.getScreenshot();
+    setImgSrc(img);
+    setNewImg(dataURLtoFile(img, "clicked.jpeg"));
+    setWebCamOn(false);
+  };
 
-  const handleDevices = React.useCallback(
-    (mediaDevices) =>
-      setDevices(mediaDevices.filter(({ kind }) => kind === "videoinput")),
-    [setDevices]
-  );
-
-  React.useEffect(() => {
-    navigator.mediaDevices.enumerateDevices().then(handleDevices);
-  }, [handleDevices]);
-
-  console.log(devices);
   return (
     <div className={styles.outerContainer}>
       {webCamOn ? (
-        <Fragment>
-          <Webcam
-            ref={webRef}
-            videoConstraints={{ deviceId: devices[0].deviceId }}
-          />
-        </Fragment>
+        <Webcam ref={webRef} screenshotFormat="image/jpeg" />
       ) : (
         <Fragment>
           <h1 className={styles.heading}>Upload your Images</h1>
@@ -94,7 +95,12 @@ const ImageSelect = () => {
             icon={X}
             iconWt="bold"
           />
-          <Button text="Capture" icon={Aperture} iconWt="bold" />
+          <Button
+            text="Capture"
+            onClick={captureHandler}
+            icon={Aperture}
+            iconWt="bold"
+          />
         </div>
       )}
       {!webCamOn && (
