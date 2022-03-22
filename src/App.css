@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+.root {
+  font-size: 16px;
+  line-height: 18px;
+  color: black;
+}
+
+body,
+.article {
+  font-family: "Manrope", sans-serif;
+  font-size: 1em;
+  line-height: 1.38461538em;
+}
+h1,
+.h1 {
+  font-size: 4.23076923em;
+  line-height: 1.30909091em;
+  margin-top: 0.32727273em;
+  margin-bottom: 0.65454546em;
+}
+h2,
+.h2 {
+  font-size: 2.61538462em;
+  line-height: 1.05882353em;
+  margin-top: 0.52941176em;
+  margin-bottom: 0.52941176em;
+}
+h3,
+.h3 {
+  font-size: 1.61538462em;
+  line-height: 1.71428571em;
+  margin-top: 0.85714286em;
+  margin-bottom: 0em;
+}
+h4,
+.h4 {
+  font-size: 1em;
+  line-height: 1.38461538em;
+  margin-top: 1.38461538em;
+  margin-bottom: 0em;
+}
+h5,
+.h5 {
+  font-size: 1em;
+  line-height: 1.38461538em;
+  margin-top: 1.38461538em;
+  margin-bottom: 0em;
+}
+p,
+ul,
+ol,
+pre,
+table,
+blockquote {
+  margin-top: 0em;
+  margin-bottom: 1.38461538em;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+/* Let's make sure all's aligned */
+hr,
+.hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+a,
+b,
+i,
+strong,
+em,
+small,
+code {
+  line-height: 0;
+}
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
