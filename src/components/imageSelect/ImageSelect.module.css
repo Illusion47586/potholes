@@ -50,3 +50,9 @@
 .submit {
   margin: 0 auto;
 }
+
+.webOn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

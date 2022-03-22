@@ -3,7 +3,7 @@ import styles from "./ImageSelect.module.css";
 import Button from "../button/Button";
 import Webcam from "react-webcam";
 import galleryIcon from "../../images/gallery.png";
-import { ArrowUp, Camera, ArrowCircleRight } from "phosphor-react";
+import { ArrowUp, Camera, ArrowCircleRight, X, Aperture } from "phosphor-react";
 
 const ImageSelect = () => {
   const inputRef = useRef();
@@ -25,8 +25,12 @@ const ImageSelect = () => {
     setWebCamOn(true);
   };
 
-  const clickHandler = () => {
+  const uploadHandler = () => {
     inputRef.current.click();
+  };
+
+  const cancelHandler = () => {
+    setWebCamOn(false);
   };
 
   const [deviceId, setDeviceId] = useState({});
@@ -71,7 +75,7 @@ const ImageSelect = () => {
               text="Upload"
               icon={ArrowUp}
               iconWt="bold"
-              onClick={clickHandler}
+              onClick={uploadHandler}
             />
             <Button
               onClick={webImageHandler}
@@ -81,6 +85,17 @@ const ImageSelect = () => {
             />
           </div>
         </Fragment>
+      )}
+      {webCamOn && (
+        <div className={styles.webOn}>
+          <Button
+            text="Cancel"
+            onClick={cancelHandler}
+            icon={X}
+            iconWt="bold"
+          />
+          <Button text="Capture" icon={Aperture} iconWt="bold" />
+        </div>
       )}
       {!webCamOn && (
         <div className={styles.submit}>
