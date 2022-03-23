@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-
+import { Link } from "react-router-dom";
 import {
   motion,
   AnimatePresence,
@@ -35,13 +35,13 @@ const Navbar = () => {
             <h3 className={classes.no_margin}>SIH Project</h3>
             <ul className={classes.no_margin}>
               <li>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="/report">Report Pothole</a>
+                <Link to="/report">Report Pothole</Link>
               </li>
               <li>
-                <a href="/us">Contact Us</a>
+                <Link to="/us">Contact Us</Link>
               </li>
             </ul>
           </>
