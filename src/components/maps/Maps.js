@@ -56,6 +56,7 @@ const Map = () => {
         east: b + center.lng,
       };
       map.fitBounds(bounds);
+      map.panTo(center);
       //   setMap(map);
     }
   }, [center]);
@@ -72,7 +73,7 @@ const Map = () => {
   };
 
   useEffect(() => {
-    // navigator.geolocation.getCurrentPosition(success, error, options);
+    navigator.geolocation.getCurrentPosition(success, error, options);
     navigator.geolocation.watchPosition(success, error, options);
   }, []);
 
@@ -93,6 +94,7 @@ const Map = () => {
       zoom={100}
       onLoad={onLoad}
       onUnmount={onUnmount}
+      streetView={false}
     >
       {/* Child components, such as markers, info windows, etc. */}
       <Circle
