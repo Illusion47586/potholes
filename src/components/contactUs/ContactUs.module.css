@@ -1,3 +1,31 @@
 .outeContainerContactUs {
-  margin: 5rem auto;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.upperText {
+  display: inline-block;
+  font-size: 5rem;
+  margin: 5rem;
+  color: darkgray;
+}
+
+.lowerText {
+  display: inline-block;
+  font-size: 6rem;
+  margin: 0 5rem;
+  color: #f3095b;
+}
+
+.imageContainer {
+  margin-top: 3rem;
+  margin-right: 2rem;
+}
+
+.contactIcon {
+  width: 35rem;
+  height: 80vh;
+  border-radius: 2rem;
 }

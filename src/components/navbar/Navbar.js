@@ -32,7 +32,9 @@ const Navbar = () => {
       >
         {!isScrolled && !isPerfect && (
           <>
-            <h3 className={classes.no_margin}>SIH Project</h3>
+            <h3 className={classes.no_margin}>
+              SIH <span style={{ color: "#f3095b" }}>Project</span>
+            </h3>
             <ul className={classes.no_margin}>
               <li>
                 <Link to="/">Home</Link>

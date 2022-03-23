@@ -59,7 +59,9 @@ const ImageSelect = () => {
         <Webcam ref={webRef} screenshotFormat="image/jpeg" />
       ) : (
         <Fragment>
-          <h1 className={styles.heading}>Upload your Images</h1>
+          <h1 className={styles.heading}>
+            Upload your<span className={styles.pinkColor}> Images</span>
+          </h1>
           <p className={styles.paraText}>PNG, JPG are allowed</p>
           <img className={styles.image} src={imgSrc} alt="pothole"></img>
           <div className={styles.inputImage}>
