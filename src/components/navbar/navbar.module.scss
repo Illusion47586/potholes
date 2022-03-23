@@ -14,6 +14,7 @@ $noise_bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4Xi
 
 nav {
   position: fixed;
+  z-index: 100;
   top: 0;
   //   right: var(--basePadding);
   width: 100vw;
