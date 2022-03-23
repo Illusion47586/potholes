@@ -74,14 +74,21 @@ const Navbar = () => {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 20, opacity: 0 }}
               >
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </motion.li>
               <motion.li
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 20, opacity: 0 }}
               >
-                <a href="/">Add pothole</a>
+                <Link to="/report">Report pothole</Link>
+              </motion.li>
+              <motion.li
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
+              >
+                <Link to="/us">Contact Us</Link>
               </motion.li>
             </ul>
           </motion.div>
