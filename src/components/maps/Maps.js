@@ -1,7 +1,21 @@
 import React, { useEffect } from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Circle } from "@react-google-maps/api";
 
 import styles from "./maps.module.scss";
+
+const options = {
+  strokeColor: "#00b4d8",
+  strokeOpacity: 0.8,
+  strokeWeight: 2,
+  fillColor: "#ade8f4",
+  fillOpacity: 0.35,
+  clickable: false,
+  draggable: false,
+  editable: false,
+  visible: true,
+  radius: 30000,
+  zIndex: 1,
+};
 
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
@@ -14,7 +28,8 @@ const Map = () => {
 
   function success(pos) {
     const crd = pos.coords;
-    setCenter({ lat: crd.latitude, lng: crd.longitude });
+    if (center.lat != crd.latitude && center.lng != crd.longitude)
+      setCenter({ lat: crd.latitude, lng: crd.longitude });
   }
 
   function error(err) {
@@ -47,13 +62,19 @@ const Map = () => {
     <GoogleMap
       mapContainerClassName={styles.mapContainer}
       center={center}
-      zoom={90}
+      //   zoom={90}
       onLoad={onLoad}
       onUnmount={onUnmount}
+      mapTypeId=""
       //   tilt={10}
     >
       {/* Child components, such as markers, info windows, etc. */}
-      <></>
+      {/* <Circle
+        // required
+        center={center}
+        // required
+        options={options}
+      /> */}
     </GoogleMap>
   ) : (
     <></>
