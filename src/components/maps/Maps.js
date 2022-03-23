@@ -29,7 +29,7 @@ const Map = () => {
   });
 
   const [map, setMap] = React.useState(null);
-  const [center, setCenter] = React.useState(null);
+  const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
 
   function success(pos) {
     const crd = pos.coords;
@@ -47,6 +47,7 @@ const Map = () => {
   useEffect(() => {
     console.log("Center: ", center);
     if (center != null && map != null) {
+      map.panTo(center);
       map.setCenter(center);
       const b = 0.0001;
       const bounds = {
@@ -56,7 +57,6 @@ const Map = () => {
         east: b + center.lng,
       };
       map.fitBounds(bounds);
-      map.panTo(center);
       //   setMap(map);
     }
   }, [center]);
@@ -72,14 +72,24 @@ const Map = () => {
     maximumAge: 0,
   };
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success, error, options);
-    navigator.geolocation.watchPosition(success, error, options);
-  }, []);
+  const button = (
+    <button
+      onClick={() => {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+      }}
+    >
+      My location
+    </button>
+  );
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();
     map.fitBounds(bounds);
+    navigator.geolocation.watchPosition(success, error, options);
+
+    // button.map.controls[window.google.maps.ControlPosition.RIGHT_BOTTOM].push(
+    //   button
+    // );
     setMap(map);
   }, []);
 
@@ -87,7 +97,7 @@ const Map = () => {
     setMap(null);
   }, []);
 
-  return isLoaded && center !== null ? (
+  return isLoaded ? (
     <GoogleMap
       mapContainerClassName={styles.mapContainer}
       center={center}
@@ -95,8 +105,10 @@ const Map = () => {
       onLoad={onLoad}
       onUnmount={onUnmount}
       streetView={false}
+      clickableIcons={false}
     >
       {/* Child components, such as markers, info windows, etc. */}
+      <button>Do something</button>
       <Circle
         // required
         center={center}
@@ -111,7 +123,7 @@ const Map = () => {
       />
     </GoogleMap>
   ) : (
-    <></>
+    <h3>Loading...</h3>
   );
 };
 
