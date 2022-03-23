@@ -49,7 +49,7 @@ const Map = () => {
     if (center != null && map != null) {
       map.panTo(center);
       map.setCenter(center);
-      const b = 0.0001;
+      const b = 0.00021;
       const bounds = {
         north: -b + center.lat,
         south: b + center.lat,
@@ -101,7 +101,7 @@ const Map = () => {
     <GoogleMap
       mapContainerClassName={styles.mapContainer}
       center={center}
-      zoom={100}
+      zoom={10}
       onLoad={onLoad}
       onUnmount={onUnmount}
       streetView={false}
