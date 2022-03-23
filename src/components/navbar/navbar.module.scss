@@ -13,15 +13,16 @@ $noise_bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4Xi
 }
 
 nav {
-  position: fixed;
+  // position: fixed;
   top: 0;
   //   right: var(--basePadding);
   width: 100vw;
-  backdrop-filter: blur(4px) brightness(95%);
+  // backdrop-filter: blur(4px) brightness(95%);
   color: black;
   @include center;
   justify-content: space-between;
   padding: 1.5em 2.5em;
+  height: 80px;
 
   transform: all 0.3s;
 
