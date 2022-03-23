@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
-import { GoogleMap, useJsApiLoader, Circle } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  useJsApiLoader,
+  Circle,
+  Marker,
+} from "@react-google-maps/api";
 
 import styles from "./maps.module.scss";
 
-const options = {
+const circleOptions = {
   strokeColor: "#00b4d8",
   strokeOpacity: 0.8,
   strokeWeight: 2,
@@ -13,7 +18,7 @@ const options = {
   draggable: false,
   editable: false,
   visible: true,
-  radius: 30000,
+  radius: 20,
   zIndex: 1,
 };
 
@@ -24,13 +29,36 @@ const Map = () => {
   });
 
   const [map, setMap] = React.useState(null);
-  const [center, setCenter] = React.useState({});
+  const [center, setCenter] = React.useState(null);
 
   function success(pos) {
     const crd = pos.coords;
-    if (center.lat != crd.latitude && center.lng != crd.longitude)
+
+    if (
+      center === null ||
+      center.lat != crd.latitude ||
+      center.lng != crd.longitude
+    ) {
+      console.log("Updating");
       setCenter({ lat: crd.latitude, lng: crd.longitude });
+    }
   }
+
+  useEffect(() => {
+    console.log("Center: ", center);
+    if (center != null && map != null) {
+      map.setCenter(center);
+      const b = 0.0001;
+      const bounds = {
+        north: -b + center.lat,
+        south: b + center.lat,
+        west: -b + center.lng,
+        east: b + center.lng,
+      };
+      map.fitBounds(bounds);
+      //   setMap(map);
+    }
+  }, [center]);
 
   function error(err) {
     // alert("ERROR(" + err.code + "): " + err.message);
@@ -58,23 +86,27 @@ const Map = () => {
     setMap(null);
   }, []);
 
-  return isLoaded ? (
+  return isLoaded && center !== null ? (
     <GoogleMap
       mapContainerClassName={styles.mapContainer}
       center={center}
-      //   zoom={90}
+      zoom={100}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      mapTypeId=""
-      //   tilt={10}
     >
       {/* Child components, such as markers, info windows, etc. */}
-      {/* <Circle
+      <Circle
         // required
         center={center}
         // required
-        options={options}
-      /> */}
+        options={circleOptions}
+      />
+      <Marker
+        icon={
+          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+        }
+        position={center}
+      />
     </GoogleMap>
   ) : (
     <></>
