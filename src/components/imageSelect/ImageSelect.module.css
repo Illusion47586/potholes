@@ -57,3 +57,7 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.pinkColor {
+  color: #f3095b;
+}
