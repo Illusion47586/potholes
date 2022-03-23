@@ -2,6 +2,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 1rem;
   display: flex;
+  max-width: 90%;
   width: 50rem;
   margin: 5rem auto;
   margin-top: 10rem;
@@ -12,6 +13,7 @@
 }
 
 .heading {
+  text-align: center;
   margin: 0 auto;
   margin-bottom: 1.5rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;

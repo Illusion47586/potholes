@@ -12,16 +12,41 @@
   color: darkgray;
 }
 
+@media screen and (max-width: 850px) {
+  .upperText {
+    margin-top: 2rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+  }
+}
+
 .lowerText {
   display: inline-block;
   font-size: 6rem;
+  line-height: 1.1;
   margin: 0 5rem;
   color: #f3095b;
+}
+
+@media screen and (max-width: 850px) {
+  .lowerText {
+    margin-top: 2rem;
+    font-size: 4rem;
+    margin-left: 2rem;
+    margin-right: 0;
+  }
 }
 
 .imageContainer {
   margin-top: 3rem;
   margin-right: 2rem;
+}
+
+@media screen and (max-width: 850px) {
+  .imageContainer {
+    display: none;
+  }
 }
 
 .contactIcon {
