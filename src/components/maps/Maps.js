@@ -49,7 +49,7 @@ const Map = () => {
 
   const getPotholes = async () => {
     const potHoles = await axios.get(
-      `http://localhost:3000/potholeByDistance?lat=${center.lat}&long=${center.lng}`
+      `https://potholesserver.herokuapp.com/potholeByDistance?lat=${center.lat}&long=${center.lng}`
     );
     // const potHoles = await axios.get(
     //   "http://localhost:3000/potholeByDistance?lat=28.6488951&long=77.040059"
