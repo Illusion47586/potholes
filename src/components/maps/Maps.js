@@ -51,9 +51,6 @@ const Map = () => {
     const potHoles = await axios.get(
       `http://localhost:3000/potholeByDistance?lat=${center.lat}&long=${center.lng}`
     );
-<<<<<<< HEAD
-    console.log(potHoles);
-=======
     // const potHoles = await axios.get(
     //   "http://localhost:3000/potholeByDistance?lat=28.6488951&long=77.040059"
     // );
@@ -63,7 +60,6 @@ const Map = () => {
     });
     console.log(p);
     setPotholes(p);
->>>>>>> 747d5fed6f9509bbd8a6a54f665ce4dabd76b2ef
   };
 
   useEffect(() => {
