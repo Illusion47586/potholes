@@ -36,13 +36,20 @@ const Map = () => {
 
     if (
       center === null ||
-      center.lat != crd.latitude ||
-      center.lng != crd.longitude
+      center.lat !== crd.latitude ||
+      center.lng !== crd.longitude
     ) {
       console.log("Updating");
       setCenter({ lat: crd.latitude, lng: crd.longitude });
     }
   }
+
+  const getPotholes = async () => {
+    const potHoles = await axios.get(
+      `http://localhost:3000/potholeByDistance?lat=${center.lat}&long=${center.lng}`
+    );
+    console.log(potHoles);
+  };
 
   useEffect(() => {
     console.log("Center: ", center);
@@ -57,6 +64,7 @@ const Map = () => {
         east: b + center.lng,
       };
       map.fitBounds(bounds);
+      getPotholes();
       //   setMap(map);
     }
   }, [center]);
