@@ -7,6 +7,7 @@ import {
 } from "@react-google-maps/api";
 
 import styles from "./maps.module.scss";
+import axios from "axios";
 
 const circleOptions = {
   strokeColor: "#00b4d8",
@@ -31,6 +32,8 @@ const Map = () => {
   const [map, setMap] = React.useState(null);
   const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
 
+  const [potholes, setPotholes] = React.useState([]);
+
   function success(pos) {
     const crd = pos.coords;
 
@@ -48,7 +51,19 @@ const Map = () => {
     const potHoles = await axios.get(
       `http://localhost:3000/potholeByDistance?lat=${center.lat}&long=${center.lng}`
     );
+<<<<<<< HEAD
     console.log(potHoles);
+=======
+    // const potHoles = await axios.get(
+    //   "http://localhost:3000/potholeByDistance?lat=28.6488951&long=77.040059"
+    // );
+    const p = [];
+    potHoles.data.forEach((v) => {
+      p.push(v.location.coordinates);
+    });
+    console.log(p);
+    setPotholes(p);
+>>>>>>> 747d5fed6f9509bbd8a6a54f665ce4dabd76b2ef
   };
 
   useEffect(() => {
@@ -123,12 +138,14 @@ const Map = () => {
         // required
         options={circleOptions}
       />
-      <Marker
-        icon={
-          "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
-        }
-        position={center}
-      />
+      {potholes.map((p) => (
+        <Marker
+          icon={
+            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+          }
+          position={{ lat: p[1], lng: p[0] }}
+        />
+      ))}
     </GoogleMap>
   ) : (
     <h3>Loading...</h3>
