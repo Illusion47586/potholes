@@ -52,7 +52,7 @@ const Map = () => {
       `https://potholesserver.herokuapp.com/potholeByDistance?lat=${center.lat}&long=${center.lng}`
     );
     // const potHoles = await axios.get(
-    //   "http://localhost:3000/potholeByDistance?lat=28.6488951&long=77.040059"
+    //   "https://potholesserver.herokuapp.com/potholeByDistance?lat=28.6488951&long=77.040059"
     // );
     const p = [];
     potHoles.data.forEach((v) => {
