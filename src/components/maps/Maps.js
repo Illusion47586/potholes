@@ -6,6 +6,7 @@ import {
   Marker,
 } from "@react-google-maps/api";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./maps.module.scss";
 import axios from "axios";
