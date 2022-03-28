@@ -5,6 +5,7 @@ import {
   Circle,
   Marker,
 } from "@react-google-maps/api";
+import { ToastContainer, toast } from "react-toastify";
 
 import styles from "./maps.module.scss";
 import axios from "axios";
@@ -22,6 +23,25 @@ const circleOptions = {
   radius: 20,
   zIndex: 1,
 };
+
+function getDistanceFromLatLonInM(lat1, lon1, lat2, lon2) {
+  const R = 6371; // Radius of the earth in km
+  const dLat = deg2rad(lat2 - lat1); // deg2rad below
+  const dLon = deg2rad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(lat1)) *
+      Math.cos(deg2rad(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const d = R * c; // Distance in km
+  return d * 1000;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}
 
 const Map = () => {
   const { isLoaded } = useJsApiLoader({
@@ -56,6 +76,24 @@ const Map = () => {
     // );
     const p = [];
     potHoles.data.forEach((v) => {
+      if (
+        getDistanceFromLatLonInM(
+          v.location.coordinates[1],
+          v.location.coordinates[0],
+          center.lat,
+          center.lng
+        ) <= 20
+      ) {
+        toast("Caution, pothole nearby.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
       p.push(v.location.coordinates);
     });
     console.log(p);
@@ -117,32 +155,35 @@ const Map = () => {
   }, []);
 
   return isLoaded ? (
-    <GoogleMap
-      mapContainerClassName={styles.mapContainer}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      streetView={false}
-      clickableIcons={false}
-    >
-      {/* Child components, such as markers, info windows, etc. */}
-      <button>Do something</button>
-      <Circle
-        // required
+    <>
+      <GoogleMap
+        mapContainerClassName={styles.mapContainer}
         center={center}
-        // required
-        options={circleOptions}
-      />
-      {potholes.map((p) => (
-        <Marker
-          icon={
-            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
-          }
-          position={{ lat: p[1], lng: p[0] }}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        streetView={false}
+        clickableIcons={false}
+      >
+        {/* Child components, such as markers, info windows, etc. */}
+        <button>Do something</button>
+        <Circle
+          // required
+          center={center}
+          // required
+          options={circleOptions}
         />
-      ))}
-    </GoogleMap>
+        {potholes.map((p) => (
+          <Marker
+            icon={
+              "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+            }
+            position={{ lat: p[1], lng: p[0] }}
+          />
+        ))}
+      </GoogleMap>
+      <ToastContainer />
+    </>
   ) : (
     <h3>Loading...</h3>
   );
