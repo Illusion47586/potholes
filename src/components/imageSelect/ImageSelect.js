@@ -4,6 +4,7 @@ import Button from "../button/Button";
 import Webcam from "react-webcam";
 import galleryIcon from "../../images/gallery.png";
 import { ArrowUp, Camera, ArrowCircleRight, X, Aperture } from "phosphor-react";
+import { toast } from "react-toastify";
 
 function dataURLtoFile(dataurl, filename) {
   var arr = dataurl.split(","),
@@ -44,6 +45,22 @@ const ImageSelect = () => {
 
   const cancelHandler = () => {
     setWebCamOn(false);
+  };
+
+  const submitHandler = () => {
+    console.log(newImg);
+    toast("Thank you for your response, data collected successfully.", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      onClose: () => {
+        window.location.reload();
+      },
+    });
   };
 
   const captureHandler = () => {
@@ -107,7 +124,12 @@ const ImageSelect = () => {
       )}
       {!webCamOn && (
         <div className={styles.submit}>
-          <Button text="Submit" icon={ArrowCircleRight} iconWt="bold" />
+          <Button
+            text="Submit"
+            icon={ArrowCircleRight}
+            iconWt="bold"
+            onClick={submitHandler}
+          />
         </div>
       )}
     </div>

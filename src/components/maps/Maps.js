@@ -5,7 +5,7 @@ import {
   Circle,
   Marker,
 } from "@react-google-maps/api";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./maps.module.scss";
@@ -156,35 +156,32 @@ const Map = () => {
   }, []);
 
   return isLoaded ? (
-    <>
-      <GoogleMap
-        mapContainerClassName={styles.mapContainer}
+    <GoogleMap
+      mapContainerClassName={styles.mapContainer}
+      center={center}
+      zoom={10}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+      streetView={false}
+      clickableIcons={false}
+    >
+      {/* Child components, such as markers, info windows, etc. */}
+      <button>Do something</button>
+      <Circle
+        // required
         center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        streetView={false}
-        clickableIcons={false}
-      >
-        {/* Child components, such as markers, info windows, etc. */}
-        <button>Do something</button>
-        <Circle
-          // required
-          center={center}
-          // required
-          options={circleOptions}
+        // required
+        options={circleOptions}
+      />
+      {potholes.map((p) => (
+        <Marker
+          icon={
+            "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+          }
+          position={{ lat: p[1], lng: p[0] }}
         />
-        {potholes.map((p) => (
-          <Marker
-            icon={
-              "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
-            }
-            position={{ lat: p[1], lng: p[0] }}
-          />
-        ))}
-      </GoogleMap>
-      <ToastContainer />
-    </>
+      ))}
+    </GoogleMap>
   ) : (
     <h3>Loading...</h3>
   );

@@ -4,7 +4,9 @@ import ImageSelect from "./components/imageSelect/ImageSelect";
 import ContactUs from "./components/contactUs/ContactUs";
 import "./App.css";
 import Maps from "./components/maps/Maps";
+import { ToastContainer } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="App">
@@ -14,6 +16,8 @@ function App() {
         <Route path="/report" exact element={<ImageSelect />} />
         <Route path="/us" exact element={<ContactUs />} />
       </Routes>
+
+      <ToastContainer />
     </div>
   );
 }
