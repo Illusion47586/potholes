@@ -13,11 +13,13 @@ const ContactUs = () => {
           <span className={styles.lowerText}>more questions?</span>
         </div>
         <div className={styles.imageContainer}>
-          <img
-            className={styles.contactIcon}
-            src={ContactIcon}
-            alt='contact'
-          ></img>
+          <div className={styles.imageInnerContainer}>
+            <img
+              className={styles.contactIcon}
+              src={ContactIcon}
+              alt='contact'
+            />
+          </div>
         </div>
       </div>
       <ContactBox />

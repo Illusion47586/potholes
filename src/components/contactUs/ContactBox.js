@@ -31,7 +31,7 @@ const ContactBox = () => {
             />
           </div>
         </div>
-        <div style={{ marginTop: '24%', marginRight: '3%'  }}>
+        <div style={{ marginTop: '24%', marginRight: '4%'  }}>
           <div className={styles.icons}>
             <img
               className={styles.icon}
