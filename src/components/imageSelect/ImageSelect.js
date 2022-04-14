@@ -2,7 +2,7 @@ import React, { Fragment, useRef, useState } from "react";
 import styles from "./ImageSelect.module.css";
 import Button from "../button/Button";
 import Webcam from "react-webcam";
-import galleryIcon from "../../images/gallery.png";
+import galleryIcon from "../../images/images-removebg-preview.png";
 import { ArrowUp, Camera, ArrowCircleRight, X, Aperture } from "phosphor-react";
 import { toast } from "react-toastify";
 
@@ -71,67 +71,69 @@ const ImageSelect = () => {
   };
 
   return (
-    <div className={styles.outerContainer}>
-      {webCamOn ? (
-        <Webcam ref={webRef} screenshotFormat="image/jpeg" />
-      ) : (
-        <Fragment>
-          <h1 className={styles.heading}>
-            Upload your<span className={styles.pinkColor}> Images</span>
-          </h1>
-          <p className={styles.paraText}>PNG, JPG are allowed</p>
-          <img className={styles.image} src={imgSrc} alt="pothole"></img>
-          <div className={styles.inputImage}>
-            <input
-              ref={inputRef}
-              className={styles.input}
-              type="file"
-              accept="image/*"
-              id="photo"
-              name="photo"
-              onChange={changeHandler}
-            />
+    <div className={styles.outerMostContainer}>
+      <div className={styles.outerContainer}>
+        {webCamOn ? (
+          <Webcam ref={webRef} screenshotFormat="image/jpeg" />
+        ) : (
+          <Fragment>
+            <h1 className={styles.heading}>
+              Upload your<span className={styles.pinkColor}> Images</span>
+            </h1>
+            <p className={styles.paraText}>.png, .jpg are allowed</p>
+            <img className={styles.image} src={imgSrc} alt="pothole"></img>
+            <div className={styles.inputImage}>
+              <input
+                ref={inputRef}
+                className={styles.input}
+                type="file"
+                accept="image/*"
+                id="photo"
+                name="photo"
+                onChange={changeHandler}
+              />
+              <Button
+                text="Upload"
+                icon={ArrowUp}
+                iconWt="bold"
+                onClick={uploadHandler}
+              />
+              <Button
+                onClick={webImageHandler}
+                text="Click"
+                icon={Camera}
+                iconWt="bold"
+              />
+            </div>
+          </Fragment>
+        )}
+        {webCamOn && (
+          <div className={styles.webOn}>
             <Button
-              text="Upload"
-              icon={ArrowUp}
+              text="Cancel"
+              onClick={cancelHandler}
+              icon={X}
               iconWt="bold"
-              onClick={uploadHandler}
             />
             <Button
-              onClick={webImageHandler}
-              text="Click"
-              icon={Camera}
+              text="Capture"
+              onClick={captureHandler}
+              icon={Aperture}
               iconWt="bold"
             />
           </div>
-        </Fragment>
-      )}
-      {webCamOn && (
-        <div className={styles.webOn}>
-          <Button
-            text="Cancel"
-            onClick={cancelHandler}
-            icon={X}
-            iconWt="bold"
-          />
-          <Button
-            text="Capture"
-            onClick={captureHandler}
-            icon={Aperture}
-            iconWt="bold"
-          />
-        </div>
-      )}
-      {!webCamOn && (
-        <div className={styles.submit}>
-          <Button
-            text="Submit"
-            icon={ArrowCircleRight}
-            iconWt="bold"
-            onClick={submitHandler}
-          />
-        </div>
-      )}
+        )}
+        {!webCamOn && (
+          <div className={styles.submit}>
+            <Button
+              text="Submit"
+              icon={ArrowCircleRight}
+              iconWt="bold"
+              onClick={submitHandler}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

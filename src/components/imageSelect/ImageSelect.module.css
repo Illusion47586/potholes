@@ -1,18 +1,43 @@
+.outerMostContainer{
+  height: calc(100vh - 88px); 
+  border: 1px solid black;
+  margin-top: 5.5rem;
+  position: relative;
+}
+
+.outerContainer::before{
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("/src/images/backgroundImage.jpg");
+  opacity: 0.8;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+  top: 0;
+}
+
 .outerContainer {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 1rem;
   display: flex;
   max-width: 90%;
-  width: 50rem;
+  width: 45rem;
   margin: 5rem auto;
-  margin-top: 10rem;
+  margin-top: 5.5rem;
   flex-direction: column;
   padding-top: 2rem;
   padding-bottom: 1rem;
-  background-color: whitesmoke;
+  outline: 20px solid rgba(255,255,255, 0.5);
+  background-color: #D3D3D3;
+  box-sizing: content-box;
 }
 
 .heading {
+  font-size: 3.5rem;
   text-align: center;
   margin: 0 auto;
   margin-bottom: 1.5rem;
