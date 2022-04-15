@@ -18,6 +18,9 @@ body,
   font-family: "Manrope", sans-serif;
   font-size: 1em;
   line-height: 1.38461538em;
+  background-image: url("/src/images/potholes.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1,
 .h1 {

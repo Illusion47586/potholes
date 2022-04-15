@@ -7,6 +7,7 @@ import Maps from "./components/maps/Maps";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import OpenModal from "./components/openModal/OpenModal";
 function App() {
   return (
     <div className="App">
@@ -16,7 +17,7 @@ function App() {
         <Route path="/report" exact element={<ImageSelect />} />
         <Route path="/us" exact element={<ContactUs />} />
       </Routes>
-
+      <OpenModal />
       <ToastContainer />
     </div>
   );
