@@ -2,13 +2,13 @@
   margin-top: 5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  object-fit: cover;
 }
 
 .upperText {
   display: inline-block;
-  font-size: 5rem;
-  margin: 5rem;
+  font-size: 3.5rem;
+  margin: 4rem 5.5rem;
   color: darkgray;
 }
 
@@ -23,9 +23,8 @@
 
 .lowerText {
   display: inline-block;
-  font-size: 6rem;
-  line-height: 1.1;
-  margin: 0 5rem;
+  font-size: 4rem;
+  margin: 0 5.5rem;
   color: #f3095b;
 }
 
@@ -39,18 +38,26 @@
 }
 
 .imageContainer {
-  margin-top: 3rem;
-  margin-right: 2rem;
+  margin-left: 10.2%;
+  margin-top: 4rem;
+  object-fit: cover;
 }
-
-@media screen and (max-width: 850px) {
+.imageInnerContainer {
+  display: -ms-flexbox;
+  justify-content: flex-end;
+  object-fit: cover;
+}
+@media screen and (max-width: 1000px) {
   .imageContainer {
     display: none;
   }
 }
 
 .contactIcon {
-  width: 35rem;
-  height: 80vh;
-  border-radius: 2rem;
+  position: absolute;
+  max-width: 40%;
+  height: 80%;
+  margin-left: 9rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 }

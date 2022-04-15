@@ -1,10 +1,11 @@
 .contactUsBox {
+  margin-top: 1rem;
   position: relative;
   flex-direction: column;
   padding-top: 5%;
 }
 .wave {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   margin: auto;
 }
