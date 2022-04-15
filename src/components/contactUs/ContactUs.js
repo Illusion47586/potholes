@@ -1,11 +1,11 @@
-import React from 'react'
-import styles from './ContactUs.module.css'
-import ContactIcon from '../../images/contact.jpg'
-import ContactBox from './ContactBox'
+import React from "react";
+import styles from "./ContactUs.module.css";
+import ContactIcon from "../../images/contact.jpg";
+import ContactBox from "./ContactBox";
 
 const ContactUs = () => {
   return (
-    <div>
+    <div className={styles.bodyContainer}>
       <div className={styles.outeContainerContactUs}>
         <div className={styles.headText}>
           <span className={styles.upperText}>Still have</span>
@@ -17,14 +17,14 @@ const ContactUs = () => {
             <img
               className={styles.contactIcon}
               src={ContactIcon}
-              alt='contact'
+              alt="contact"
             />
           </div>
         </div>
       </div>
       <ContactBox />
     </div>
-  )
-}
+  );
+};
 
-export default ContactUs
+export default ContactUs;
