@@ -159,7 +159,7 @@ const MapBox = () => {
           longitude: center.lng,
           zoom: 9,
         }}
-        testMode
+        testMode={process.env.NODE_ENV === "development"}
       >
         <GeolocateControl position="bottom-left" />
         <NavigationControl
