@@ -4,6 +4,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./maps.module.scss";
 import axios from "axios";
+/* eslint-disable import/no-webpack-loader-syntax */
+import mapboxgl from "mapbox-gl";
+// @ts-ignore
+mapboxgl.workerClass =
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 import Map, {
   GeolocateControl,
