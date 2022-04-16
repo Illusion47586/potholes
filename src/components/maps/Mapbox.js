@@ -119,7 +119,7 @@ const MapBox = () => {
   return (
     <div className={styles.mapContainer}>
       <Map
-        mapboxAccessToken="pk.eyJ1IjoiZGhydXY0NzU4NiIsImEiOiJjbDIxbjFxdWQwMm90M2Vvb2s1cjg0YzUwIn0.dF0jG5YjBNyDYrWsa9j3HQ"
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
         ref={map}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         initialViewState={{
