@@ -11,7 +11,7 @@ import Map, {
   NavigationControl,
   Source,
   Layer,
-} from "react-map-gl";
+} from "react-map-gl/dist/es5";
 
 function getDistanceFromLatLonInM(lat1, lon1, lat2, lon2) {
   const R = 6371; // Radius of the earth in km
