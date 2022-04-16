@@ -5,7 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./maps.module.scss";
 import axios from "axios";
 
-import Map, { Marker } from "react-map-gl";
+import Map, {
+  GeolocateControl,
+  Marker,
+  NavigationControl,
+  Source,
+  Layer,
+} from "react-map-gl";
 
 function getDistanceFromLatLonInM(lat1, lon1, lat2, lon2) {
   const R = 6371; // Radius of the earth in km
@@ -82,7 +88,7 @@ const MapBox = () => {
   useEffect(() => {
     console.log("Center: ", center);
     if (center != null && map != null) {
-      const b = 0.00021;
+      const b = 0.00051;
       const bounds = {
         north: -b + center.lat,
         south: b + center.lat,
@@ -116,6 +122,25 @@ const MapBox = () => {
     navigator.geolocation.watchPosition(success, error, options);
   });
 
+  const geojson = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: { type: "Point", coordinates: [center.lng, center.lat] },
+      },
+    ],
+  };
+
+  const layerStyle = {
+    id: "point",
+    type: "circle",
+    paint: {
+      "circle-radius": 100,
+      "circle-color": "#89cff0",
+    },
+  };
+
   return (
     <div className={styles.mapContainer}>
       <Map
@@ -129,6 +154,15 @@ const MapBox = () => {
         }}
         testMode
       >
+        <GeolocateControl position="bottom-left" />
+        <NavigationControl
+          showCompass={true}
+          showZoom={true}
+          position="bottom-left"
+        />
+        <Source id="my-data" type="geojson" data={geojson}>
+          <Layer {...layerStyle} />
+        </Source>
         <Marker longitude={center.lng} latitude={center.lat}>
           <img src="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" />
         </Marker>
