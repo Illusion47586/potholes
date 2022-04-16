@@ -81,7 +81,7 @@ const MapBox = () => {
 
       p.push(v.location.coordinates);
     });
-    console.log(p);
+    // console.log(p);
     setPotholes(p);
   };
 
