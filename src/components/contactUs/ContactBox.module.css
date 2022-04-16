@@ -1,10 +1,16 @@
 .contactUsBox {
-  margin-top: 1rem;
-  position: relative;
+  /* margin-top: 1rem; */
+  /* position: relative; */
+  position: fixed;
+  bottom: 0;
+  left: 0;
   flex-direction: column;
   padding-top: 5%;
+  width: 100%;
 }
+
 .wave {
+  display: block;
   width: 100%;
   height: auto;
   margin: auto;
