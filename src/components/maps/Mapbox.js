@@ -5,10 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./maps.module.scss";
 import axios from "axios";
 /* eslint-disable import/no-webpack-loader-syntax */
-import mapboxgl from "mapbox-gl";
-// @ts-ignore
-mapboxgl.workerClass =
-  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+// import mapboxgl from "mapbox-gl";
 
 import Map, {
   GeolocateControl,
@@ -17,6 +14,10 @@ import Map, {
   Source,
   Layer,
 } from "react-map-gl/dist/es5";
+
+// @ts-ignore
+// mapboxgl.workerClass =
+//   require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 function getDistanceFromLatLonInM(lat1, lon1, lat2, lon2) {
   const R = 6371; // Radius of the earth in km
