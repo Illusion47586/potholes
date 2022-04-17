@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./maps.module.scss";
 import axios from "axios";
+import OpenModal from "../openModal/OpenModal";
 /* eslint-disable import/no-webpack-loader-syntax */
 // import mapboxgl from "mapbox-gl";
 
@@ -180,6 +181,7 @@ const MapBox = () => {
           </Marker>
         ))}
       </Map>
+      <OpenModal />
     </div>
   );
 };
