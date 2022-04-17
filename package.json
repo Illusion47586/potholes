@@ -42,7 +42,7 @@
       "not dead",
       "not op_mini all",
       "not ie 11",
-      "bit chrome < 51",
+      "not chrome < 51",
       "not safari < 10",
       "not android < 51"
     ],
