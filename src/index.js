@@ -17,7 +17,7 @@ ReactDOM.render(
           alignItems: "center",
         }}
       >
-        "...loading"
+        ...loading
       </div>
     }
   >
