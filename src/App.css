@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
+/* .mapboxgl-canvas {
+  height: 100vh !important;
+  width: 100vw !important;
+} */
+
 * {
   padding: 0;
   margin: 0;

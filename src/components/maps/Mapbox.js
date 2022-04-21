@@ -102,6 +102,7 @@ const MapBox = () => {
         west: -b + center.lng,
         east: b + center.lng,
       };
+      map.current?.resize();
 
       map.current?.fitBounds(
         [
@@ -127,7 +128,7 @@ const MapBox = () => {
 
   useEffect(() => {
     navigator.geolocation.watchPosition(success, error, options);
-  });
+  }, []);
 
   const geojson = {
     type: "FeatureCollection",
@@ -162,6 +163,7 @@ const MapBox = () => {
           zoom: 9,
         }}
         testMode={process.env.NODE_ENV === "development"}
+        style={{ width: "100vw", height: "100vh" }}
       >
         <GeolocateControl position="bottom-left" />
         <NavigationControl
