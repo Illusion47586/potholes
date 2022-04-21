@@ -24,7 +24,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t, i18n } = useTranslation();
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const { scrollYProgress } = useViewportScroll();
   scrollYProgress.onChange(() => setIsScrolled(scrollYProgress.get() > 0.01));
 
@@ -44,13 +44,13 @@ const Navbar = () => {
             </h3>
             <ul className={classes.no_margin}>
               <li>
-                <a href="/">Home</a>
+                <a href="/">{t("navbar.home")}</a>
               </li>
               <li>
                 <Link to="/report">{t("navbar.report")}</Link>
               </li>
               <li>
-                <Link to="/us">Contact Us</Link>
+                <Link to="/us">{t("navbar.contact")}</Link>
               </li>
               <li>
                 <Button

@@ -1,5 +1,17 @@
 {
   "navbar": {
-    "report": "रिपोर्ट गड्ढा"
+    "report": "रिपोर्ट गड्ढा",
+    "contact": "संपर्क करें",
+    "home": "घर"
+  },
+  "upload": {
+    "uploadYour": "तश्वीरें अपलोड",
+    "images": "करो",
+    "pngJpg": "केवल .पीएनजी, .जेपीजी की अनुमति है",
+    "uploadButton": "अपलोड",
+    "clickButton": "क्लिक",
+    "submitButton": "प्रस्तुत",
+    "captureButton": "कैप्चर",
+    "cancelButton": "रद्द करें"
   }
 }
