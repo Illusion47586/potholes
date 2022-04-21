@@ -102,7 +102,6 @@ const MapBox = () => {
         west: -b + center.lng,
         east: b + center.lng,
       };
-      map.current?.resize();
 
       map.current?.fitBounds(
         [
@@ -114,7 +113,17 @@ const MapBox = () => {
       getPotholes();
       //   setMap(map);
     }
+
+    return () => {
+      map.current?.resize();
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    };
   }, [center]);
+
+  useEffect(() => {
+    map.current?.resize();
+  }, [map.current]);
+
   function error(err) {
     // alert("ERROR(" + err.code + "): " + err.message);
     console.warn("ERROR(" + err.code + "): " + err.message);
@@ -126,8 +135,11 @@ const MapBox = () => {
     maximumAge: 0,
   };
 
+  const [geoId, setGeoId] = React.useState(null);
+
   useEffect(() => {
-    navigator.geolocation.watchPosition(success, error, options);
+    if (geoId) navigator.geolocation.clearWatch(geoId);
+    else setGeoId(navigator.geolocation.watchPosition(success, error, options));
   }, []);
 
   const geojson = {

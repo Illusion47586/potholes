@@ -44,7 +44,7 @@ const Navbar = () => {
             </h3>
             <ul className={classes.no_margin}>
               <li>
-                <Link to="/">Home</Link>
+                <a href="/">Home</a>
               </li>
               <li>
                 <Link to="/report">{t("navbar.report")}</Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: 20, opacity: 0 }}
               >
-                <Link to="/">Home</Link>
+                <a href="/">Home</a>
               </motion.li>
               <motion.li
                 initial={{ x: -20, opacity: 0 }}
@@ -106,6 +106,20 @@ const Navbar = () => {
                 exit={{ x: 20, opacity: 0 }}
               >
                 <Link to="/us">Contact Us</Link>
+              </motion.li>
+              <motion.li
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 20, opacity: 0 }}
+              >
+                <Button
+                  text={lngs[Object.keys(lngs)[index]].nativeName}
+                  size={1}
+                  onClick={() => {
+                    i18n.changeLanguage(Object.keys(lngs)[index]);
+                    setIndex((index + 1) % 2);
+                  }}
+                />
               </motion.li>
             </ul>
           </motion.div>
