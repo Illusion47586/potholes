@@ -9,15 +9,22 @@ import {
 import { MagnifyingGlass, DotsThreeOutlineVertical, X } from "phosphor-react";
 import UseAnimations from "react-useanimations";
 import menu from "react-useanimations/lib/menu4";
-
+import { useTranslation } from "react-i18next";
+import Button from "../button/Button";
 import useWindowDimensions from "../../hooks/windowDimensions";
 import classes from "./navbar.module.scss";
+
+const lngs = {
+  en: { nativeName: "English" },
+  hi: { nativeName: "हिन्दी" },
+};
 
 const Navbar = () => {
   const { isPerfect } = useWindowDimensions();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const { t, i18n } = useTranslation();
+  const [index, setIndex] = useState(0);
   const { scrollYProgress } = useViewportScroll();
   scrollYProgress.onChange(() => setIsScrolled(scrollYProgress.get() > 0.01));
 
@@ -40,10 +47,20 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/report">Report Pothole</Link>
+                <Link to="/report">{t("navbar.report")}</Link>
               </li>
               <li>
                 <Link to="/us">Contact Us</Link>
+              </li>
+              <li>
+                <Button
+                  text={lngs[Object.keys(lngs)[index]].nativeName}
+                  size={1}
+                  onClick={() => {
+                    i18n.changeLanguage(Object.keys(lngs)[index]);
+                    setIndex((index + 1) % 2);
+                  }}
+                />
               </li>
             </ul>
           </>
