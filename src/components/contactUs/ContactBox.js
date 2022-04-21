@@ -2,7 +2,11 @@ import React from "react";
 import styles from "./ContactBox.module.css";
 import Wave from "../../images/wave.png";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const ContactBox = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.contactUsBox}>
       <img className={styles.wave} src={Wave} alt="wave-img"></img>
@@ -46,25 +50,25 @@ const ContactBox = () => {
       </div>
       <div className={styles.headText}>
         <div>
-          <span className={styles.upperText}>Need help with</span>
+          <span className={styles.upperText}>{t("contactUs.needHelp")}</span>
           <br />
-          <span className={styles.lowerText}>anything?</span>
+          <span className={styles.lowerText}>{t("contactUs.withAny")}</span>
         </div>
         <div>
           <span className={styles.hearAboutUs}>
-            Let’s hear all about it! <Link to="/us">Contact Us</Link>
+            {t("contactUs.hear")} <Link to="/us">{t("navbar.contact")}</Link>
           </span>
         </div>
       </div>
       <div className={styles.connectUsContent}>
         <div className={styles.emailPhone}>
           <div className={styles.email}>
-            <span className={styles.emailId}>Phone</span>
+            <span className={styles.emailId}>{t("contactUs.phone")}</span>
             <br />
             <span className={styles.emailValue}>+91-1234567890</span>
           </div>
           <div className={styles.email}>
-            <span className={styles.emailId}>Email</span>
+            <span className={styles.emailId}>{t("contactUs.email")}</span>
             <br />
             <span className={styles.emailValue}>potholes@gmail.com</span>
           </div>

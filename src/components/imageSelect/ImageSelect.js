@@ -24,7 +24,7 @@ const ImageSelect = () => {
   const inputRef = useRef();
   const webRef = useRef(null);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [imgSrc, setImgSrc] = useState(galleryIcon);
   const [webCamOn, setWebCamOn] = useState(false);
   const [newImg, setNewImg] = useState(null);

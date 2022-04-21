@@ -1,8 +1,14 @@
-.outeContainerContactUs {
+.outerContainerContactUs {
   margin-top: 5rem;
   display: flex;
+  width: 100%;
   flex-direction: row;
   object-fit: cover;
+}
+
+.headText{
+  flex: 1;
+  /* flex-basis: 50%; */
 }
 
 .upperText {
@@ -54,10 +60,12 @@
 }
 
 .contactIcon {
-  position: absolute;
-  max-width: 40%;
+  display: inline-block;
+  width: 35%;
   height: 80%;
-  margin-left: 9rem;
+  margin-left: auto;
+  margin-top: 2rem;
+  margin-right: 2rem;
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
 }

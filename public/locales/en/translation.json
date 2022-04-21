@@ -13,5 +13,19 @@
     "submitButton": "Submit",
     "captureButton": "Capture",
     "cancelButton": "Cancel"
+  },
+  "popupFront": {
+    "pothole": "Pothole detector",
+    "belowInfo": "Total 3,564 road accidents occurred in India due to potholes in the year 2020.",
+    "continue": "Continue"
+  },
+  "contactUs": {
+    "stillHave": "Still have",
+    "moreQuestions": "more questions?",
+    "needHelp": "Need help with",
+    "withAny": "anything?",
+    "hear": "Let’s hear all about it!",
+    "phone": "Phone",
+    "email": "Email"
   }
 }

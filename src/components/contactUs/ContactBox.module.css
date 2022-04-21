@@ -74,6 +74,7 @@
 .upperText {
   display: inline-block;
   font-size: 2.5rem;
+  margin-bottom: 1.5rem;
   color: #f3095b;
   font-weight: 700;
 }

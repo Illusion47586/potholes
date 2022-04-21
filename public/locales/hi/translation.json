@@ -13,5 +13,19 @@
     "submitButton": "प्रस्तुत",
     "captureButton": "कैप्चर",
     "cancelButton": "रद्द करें"
+  },
+  "popupFront": {
+    "pothole": "गड्ढा संसूचक",
+    "belowInfo": "वर्ष 2020 में गड्ढों के कारण भारत में कुल 3,564 सड़क दुर्घटनाएं हुईं",
+    "continue": "जारी रखें"
+  },
+  "contactUs": {
+    "stillHave": "अभी भी",
+    "moreQuestions": "और प्रश्न हैं?",
+    "needHelp": "कुछ भी",
+    "withAny": "मदद चाहिए?",
+    "hear": "आइए सुनते हैं इसके बारे में!",
+    "phone": "फ़ोन",
+    "email": "ईमेल"
   }
 }
