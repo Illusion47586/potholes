@@ -45,6 +45,10 @@ const MapBox = () => {
 
   const [potholes, setPotholes] = React.useState([]);
 
+  useEffect(() => {
+    map.current?.resize();
+  }, [map.current]);
+
   function success(pos) {
     const crd = pos.coords;
 
@@ -119,10 +123,6 @@ const MapBox = () => {
       navigator.geolocation.getCurrentPosition(success, error, options);
     };
   }, [center]);
-
-  useEffect(() => {
-    map.current?.resize();
-  }, [map.current]);
 
   function error(err) {
     // alert("ERROR(" + err.code + "): " + err.message);
