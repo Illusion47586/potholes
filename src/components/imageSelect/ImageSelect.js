@@ -58,7 +58,7 @@ const ImageSelect = () => {
       draggable: true,
       progress: undefined,
       onClose: () => {
-        window.location.reload();
+        window.location.href = "/reported";
       },
     });
   };
