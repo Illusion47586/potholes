@@ -2,6 +2,7 @@ import React, { Fragment, useRef, useState } from "react";
 import styles from "./ImageSelect.module.css";
 import Button from "../button/Button";
 import Webcam from "react-webcam";
+import { useTranslation } from "react-i18next";
 import galleryIcon from "../../images/images-removebg-preview.png";
 import { ArrowUp, Camera, ArrowCircleRight, X, Aperture } from "phosphor-react";
 import { toast } from "react-toastify";
@@ -23,6 +24,7 @@ const ImageSelect = () => {
   const inputRef = useRef();
   const webRef = useRef(null);
 
+  const { t, i18n } = useTranslation();
   const [imgSrc, setImgSrc] = useState(galleryIcon);
   const [webCamOn, setWebCamOn] = useState(false);
   const [newImg, setNewImg] = useState(null);
@@ -78,9 +80,10 @@ const ImageSelect = () => {
         ) : (
           <Fragment>
             <h1 className={styles.heading}>
-              Upload your<span className={styles.pinkColor}> Images</span>
+              {t("upload.uploadYour")}
+              <span className={styles.pinkColor}> {t("upload.images")}</span>
             </h1>
-            <p className={styles.paraText}>.png, .jpg are allowed</p>
+            <p className={styles.paraText}>{t("upload.pngJpg")}</p>
             <img className={styles.image} src={imgSrc} alt="pothole"></img>
             <div className={styles.inputImage}>
               <input
@@ -93,14 +96,14 @@ const ImageSelect = () => {
                 onChange={changeHandler}
               />
               <Button
-                text="Upload"
+                text={t("upload.uploadButton")}
                 icon={ArrowUp}
                 iconWt="bold"
                 onClick={uploadHandler}
               />
               <Button
                 onClick={webImageHandler}
-                text="Click"
+                text={t("upload.clickButton")}
                 icon={Camera}
                 iconWt="bold"
               />
@@ -110,13 +113,13 @@ const ImageSelect = () => {
         {webCamOn && (
           <div className={styles.webOn}>
             <Button
-              text="Cancel"
+              text={t("upload.cancelButton")}
               onClick={cancelHandler}
               icon={X}
               iconWt="bold"
             />
             <Button
-              text="Capture"
+              text={t("upload.captureButton")}
               onClick={captureHandler}
               icon={Aperture}
               iconWt="bold"
@@ -126,7 +129,7 @@ const ImageSelect = () => {
         {!webCamOn && (
           <div className={styles.submit}>
             <Button
-              text="Submit"
+              text={t("upload.submitButton")}
               icon={ArrowCircleRight}
               iconWt="bold"
               onClick={submitHandler}

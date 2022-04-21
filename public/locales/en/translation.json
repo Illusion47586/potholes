@@ -1,5 +1,17 @@
 {
   "navbar": {
-    "report": "Report Pothole"
+    "report": "Report Pothole",
+    "contact": "Contact Us",
+    "home": "Home"
+  },
+  "upload": {
+    "uploadYour": "Upload your",
+    "images": "Images",
+    "pngJpg": ".png, .jpg are allowed",
+    "uploadButton": "Upload",
+    "clickButton": "Click",
+    "submitButton": "Submit",
+    "captureButton": "Capture",
+    "cancelButton": "Cancel"
   }
 }
