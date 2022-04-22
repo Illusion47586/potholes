@@ -55,7 +55,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Button
-                  text={lngs[Object.keys(lngs)[index]].nativeName}
+                  text={lngs[Object.keys(lngs)[(index + 1) % 2]].nativeName}
                   size={1}
                   onClick={() => {
                     i18n.changeLanguage(Object.keys(lngs)[index]);
