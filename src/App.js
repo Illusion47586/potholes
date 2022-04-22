@@ -23,8 +23,7 @@ function App() {
             <iframe
               width="100%"
               height="850"
-              title="reported"
-              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FS6MjbQEtiUxawD8C1H4DX1%2FSIH%3Fnode-id%3D188%253A303%26scaling%3Dmin-zoom%26page-id%3D0%253A1%26starting-point-node-id%3D180%253A315"
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FG5wJIzEboSrg08PxqMML6k%2FAnalysis%3Fnode-id%3D2%253A87%26scaling%3Dmin-zoom%26page-id%3D0%253A1%26starting-point-node-id%3D2%253A87"
               allowFullScreen
             ></iframe>
           }
