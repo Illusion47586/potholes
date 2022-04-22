@@ -3,6 +3,7 @@ import { ArrowRight } from "phosphor-react";
 import React, { useState } from "react";
 import Button from "../button/Button";
 import { useTranslation } from "react-i18next";
+import driveIcon from "../../images/cat_accident.png";
 import styles from "./modal.module.scss";
 
 const OpenModal = () => {
@@ -26,7 +27,7 @@ const OpenModal = () => {
               {t("navbar.sah")}
               {t("navbar.ayak")}
             </motion.h1>
-            <motion.img src="https://images.unsplash.com/photo-1617791160530-fb48acfc1658?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" />
+            <motion.img src={driveIcon} />
           </motion.div>
           <motion.p>{t("popupFront.belowInfo")}</motion.p>
           <Button
