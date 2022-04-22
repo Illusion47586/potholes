@@ -22,7 +22,10 @@ const OpenModal = () => {
           exit={{ opacity: 0 }}
         >
           <motion.div className={styles.stuff}>
-            <motion.h1>{t("popupFront.pothole")}</motion.h1>
+            <motion.h1>
+              {t("navbar.sah")}
+              {t("navbar.ayak")}
+            </motion.h1>
             <motion.img src="https://images.unsplash.com/photo-1617791160530-fb48acfc1658?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" />
           </motion.div>
           <motion.p>{t("popupFront.belowInfo")}</motion.p>

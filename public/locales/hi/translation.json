@@ -2,7 +2,9 @@
   "navbar": {
     "report": "रिपोर्ट गड्ढा",
     "contact": "संपर्क करें",
-    "home": "घर"
+    "home": "घर",
+    "sah": "सहा",
+    "ayak": "यक:"
   },
   "upload": {
     "uploadYour": "तश्वीरें अपलोड",

@@ -2,7 +2,9 @@
   "navbar": {
     "report": "Report Pothole",
     "contact": "Contact Us",
-    "home": "Home"
+    "home": "Home",
+    "sah": "Sah",
+    "ayak": "ayak"
   },
   "upload": {
     "uploadYour": "Upload your",

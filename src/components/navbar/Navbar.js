@@ -40,7 +40,8 @@ const Navbar = () => {
         {!isScrolled && !isPerfect && (
           <>
             <h3 className={classes.no_margin}>
-              Jeevan <span style={{ color: "#f3095b" }}>Sanrakshak</span>
+              {t("navbar.sah")}
+              <span style={{ color: "#f3095b" }}>{t("navbar.ayak")}</span>
             </h3>
             <ul className={classes.no_margin}>
               <li>
